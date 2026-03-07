@@ -151,6 +151,10 @@ nav ul {
   align-items: center;
 }
 
+nav ul li {
+  position: relative;
+}
+
 nav a {
   color: var(--white);
   text-decoration: none;
@@ -164,6 +168,61 @@ nav a {
 nav a:hover {
   color: var(--secondary);
   border-bottom-color: var(--secondary);
+}
+
+.has-mega-menu .mega-menu {
+  position: absolute;
+  top: calc(100% + 12px);
+  left: 50%;
+  transform: translateX(-50%);
+  width: min(860px, 92vw);
+  background: #f3f4f6;
+  border: 1px solid #d8d8d8;
+  box-shadow: var(--shadow-xl);
+  z-index: 1100;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 0.2s ease;
+}
+
+.has-mega-menu:hover .mega-menu,
+.has-mega-menu:focus-within .mega-menu {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+.mega-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.mega-col {
+  padding: 16px 18px;
+}
+
+.mega-col + .mega-col {
+  border-left: 1px solid #d8d8d8;
+}
+
+.mega-col h4 {
+  color: var(--primary);
+  margin-bottom: 10px;
+  font-size: 16px;
+}
+
+.mega-col a {
+  display: block;
+  color: #2f2f2f;
+  border-bottom: 1px solid #e8e8e8;
+  padding: 10px 0;
+  font-size: 15px;
+}
+
+.mega-col a:hover {
+  color: var(--secondary);
+  border-bottom-color: #e8e8e8;
 }
 
 .menu-toggle {
@@ -1083,6 +1142,48 @@ html {
   nav a {
     padding: 10px 0;
     display: block;
+  }
+
+  .has-mega-menu .mega-menu {
+    position: static;
+    transform: none;
+    width: 100%;
+    margin-top: 8px;
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    box-shadow: none;
+    border: 1px solid rgba(255,255,255,0.15);
+    background: rgba(255,255,255,0.08);
+    display: none;
+  }
+
+  .has-mega-menu:hover .mega-menu,
+  .has-mega-menu:focus-within .mega-menu {
+    display: block;
+  }
+
+  .mega-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .mega-col + .mega-col {
+    border-left: 0;
+    border-top: 1px solid rgba(255,255,255,0.15);
+  }
+
+  .mega-col h4 {
+    color: var(--white);
+  }
+
+  .mega-col a {
+    color: var(--white);
+    border-bottom-color: rgba(255,255,255,0.12);
+    font-size: 14px;
+  }
+
+  .mega-col a:hover {
+    color: var(--secondary-light);
   }
 
   .menu-toggle {
