@@ -172,7 +172,7 @@ nav a:hover {
 
 .has-mega-menu .mega-menu {
   position: absolute;
-  top: calc(100% + 12px);
+  top: 100%;
   left: 50%;
   transform: translateX(-50%);
   width: min(860px, 92vw);
@@ -184,6 +184,11 @@ nav a:hover {
   visibility: hidden;
   pointer-events: none;
   transition: opacity 0.2s ease;
+}
+
+.has-mega-menu {
+  padding-bottom: 10px;
+  margin-bottom: -10px;
 }
 
 .has-mega-menu:hover .mega-menu,

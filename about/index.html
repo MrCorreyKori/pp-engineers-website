@@ -14,20 +14,48 @@ h1{color:#0B1F3A;}
 </style>
 </head>
 <body>
+<div id="header"></div>
 
-<div class="container">
-<h1>About P & P Engineers & Contractor</h1>
-<p>
-Established in 2011, P & P Engineers & Contractor is a manufacturer of 
-Rubber Dispersion Kneader Machines, Mixing Mills, Moulding Machines, 
-Extruders and Intermix Rotors based in Ambarnath MIDC, Maharashtra.
-</p>
+<section class="section">
+  <div class="container">
+    <h1>About P & P Engineers & Contractor</h1>
+    <p>
+      Established in 2011, P & P Engineers & Contractor is a manufacturer of
+      Rubber Dispersion Kneader Machines, Mixing Mills, Moulding Machines,
+      Extruders and Intermix Rotors based in Ambarnath MIDC, Maharashtra.
+    </p>
+    <p>
+      Backed by over 30 years of rubber industry experience, we deliver
+      heavy-duty industrial machinery designed for durability, performance and precision.
+    </p>
+  </div>
+</section>
 
-<p>
-Backed by over 30 years of rubber industry experience, we deliver 
-heavy-duty industrial machinery designed for durability, performance and precision.
-</p>
-</div>
+<div id="footer"></div>
 
+<script>
+function toggleMenu() {
+  const nav = document.getElementById("nav-links");
+  if (nav) nav.classList.toggle("active");
+}
+
+document.addEventListener("DOMContentLoaded", function() {
+  function loadComponent(id, file) {
+    fetch(file)
+      .then(response => {
+        if (!response.ok) throw new Error("Failed to load " + file);
+        return response.text();
+      })
+      .then(data => {
+        const element = document.getElementById(id);
+        if (element) element.innerHTML = data;
+      })
+      .catch(error => console.error(error));
+  }
+
+  loadComponent("header", "../components/header.html");
+  loadComponent("footer", "../components/footer.html");
+});
+</script>
 </body>
 </html>
