@@ -544,6 +544,23 @@ nav a:hover {
   border: 1px solid transparent;
 }
 
+.hero-section,
+.hero,
+.hero-product {
+  animation: fadeInUp 0.7s ease-out both;
+}
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 .card:hover {
   transform: translateY(-5px);
   border-color: var(--secondary);
@@ -1216,8 +1233,8 @@ html {
     background: var(--primary);
     flex-direction: column;
     display: none;
-    padding: 20px 0;
-    gap: 15px;
+    padding: 18px 0;
+    gap: 4px;
     box-shadow: 0 5px 10px rgba(0,0,0,0.2);
     z-index: 1000;
   }
@@ -1227,8 +1244,9 @@ html {
   }
 
   nav a {
-    padding: 10px 0;
+    padding: 14px 20px;
     display: block;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
   }
 
   .has-mega-menu .mega-menu {
@@ -1289,13 +1307,35 @@ html {
     justify-content: center;
   }
 
-  /* Hero */
+  /* Hero – tablet & mobile */
   .hero h1 {
-    font-size: 28px;
+    font-size: 24px;
+    line-height: 1.25;
   }
 
   .hero {
-    padding: 100px 0;
+    padding: 80px 0 70px;
+  }
+
+  .hero-section {
+    padding: 80px 0 60px;
+    text-align: center;
+  }
+
+  .hero-inner {
+    padding: 0 8px;
+  }
+
+  .hero-title {
+    font-size: 2.05rem;
+    line-height: 1.25;
+  }
+
+  .hero-subtitle {
+    font-size: 1rem;
+    max-width: 520px;
+    margin-left: auto;
+    margin-right: auto;
   }
   
   .hero-product h1 {
@@ -1306,6 +1346,23 @@ html {
     padding: 60px 0 30px;
   }
 
+  .hero-ctas {
+    flex-direction: column;
+    align-items: stretch;
+    margin-top: 10px;
+    gap: 12px;
+  }
+
+  .hero-ctas .btn {
+    width: 100%;
+    text-align: center;
+    justify-content: center;
+  }
+
+  .hero-meta-badges {
+    margin-top: 24px;
+  }
+
   /* Model Navigation */
   .model-nav {
     border-radius: 0;
@@ -1313,11 +1370,16 @@ html {
     padding: 10px;
     margin: 20px 0 30px;
     --nav-top-offset: 60px;
+    overflow-x: auto;
+    justify-content: flex-start;
+    gap: 10px;
+    scrollbar-width: thin;
   }
   
   .model-nav a {
     padding: 8px 15px;
     font-size: 12px;
+    white-space: nowrap;
   }
   
   /* Product Grid */
@@ -1343,10 +1405,27 @@ html {
   .product-title {
     font-size: 24px;
   }
+
+  .spec-table {
+    display: block;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
   
   /* Stats Grid */
   .stats-grid {
     grid-template-columns: repeat(2, 1fr);
+  }
+
+  /* Sections below hero */
+  .section {
+    padding-top: 64px;
+    padding-bottom: 72px;
+  }
+
+  .section-title {
+    font-size: 1.9rem;
+    margin-bottom: 36px;
   }
   
   /* Page Navigation */
@@ -1441,6 +1520,30 @@ html {
   
   .product-price {
     font-size: 20px;
+  }
+
+  .hero-meta-badges {
+    flex-direction: column;
+    margin-top: 20px;
+  }
+
+  .hero-meta-badges .badge {
+    font-size: 0.9rem;
+  }
+
+  /* Extra-small hero tightening */
+  .hero,
+  .hero-section {
+    padding-top: 60px;
+    padding-bottom: 56px;
+  }
+
+  .hero-title {
+    font-size: 1.9rem;
+  }
+
+  .hero-subtitle {
+    max-width: 480px;
   }
   
   .trust-grid {
