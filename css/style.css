@@ -142,6 +142,7 @@ header {
   font-size: 24px;
   font-weight: 700;
   letter-spacing: 0.5px;
+  text-decoration: none;
 }
 
 nav ul {
@@ -397,6 +398,21 @@ nav a:hover {
 .btn-secondary:hover {
   background: var(--primary);
   color: var(--white);
+}
+
+/* Secondary buttons on dark hero backgrounds */
+.hero-section .btn-secondary,
+.hero-product .btn-secondary,
+.hero .btn-secondary {
+  color: var(--white);
+  border-color: rgba(249, 250, 251, 0.9);
+}
+
+.hero-section .btn-secondary:hover,
+.hero-product .btn-secondary:hover,
+.hero .btn-secondary:hover {
+  background: var(--white);
+  color: var(--primary);
 }
 
 .btn-text {
