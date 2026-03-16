@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -98,57 +98,10 @@
 
 <!-- Page-specific minimal styles -->
 <style>
-  /* Only page-specific overrides, all common styles are in style.css */
-  .hero {
-    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
-    color: var(--white);
-    padding: 100px 0;
-    position: relative;
-    overflow: hidden;
-  }
-
-  .hero:before {
-    content: '';
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: 50%;
-    height: 100%;
-    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" fill="%23ffffff" opacity="0.05"><path d="M20 20 L80 20 L80 80 L20 80 Z" stroke="white" stroke-width="2" fill="none"/><circle cx="50" cy="50" r="20" stroke="white" stroke-width="2" fill="none"/></svg>');
-    background-size: 200px;
-    opacity: 0.1;
-  }
-
-  .hero h1 {
-    font-size: 3.5rem;
-    line-height: 1.2;
-    margin-bottom: 20px;
-    max-width: 800px;
-  }
-
-  .hero p {
-    font-size: 1.2rem;
-    margin-bottom: 30px;
-    max-width: 600px;
-    opacity: 0.9;
-  }
-
-  .hero .btn-secondary {
-    border-color: var(--white);
-    color: var(--white);
-  }
-
-  .hero .btn-secondary:hover {
-    background: var(--white);
-    color: var(--primary);
-  }
-
-  /* Responsive */
   @media (max-width: 768px) {
-    .hero h1 {
-      font-size: 2.5rem;
+    .hero-title {
+      font-size: 2.3rem;
     }
-    
     .stats-grid {
       grid-template-columns: repeat(2, 1fr);
     }
@@ -162,22 +115,33 @@
 <div id="header"></div>
 
 <!-- Hero Section -->
-<section class="hero">
+<section class="hero-section hero--centered">
   <div class="container">
-    <div style="text-align: center; max-width: 900px; margin: 0 auto;">
-      <span class="geo-tag"><i class="fas fa-industry"></i> Ambarnath MIDC • Maharashtra's Leading Rubber Machinery Manufacturer Since 2011</span>
-      <h1 style="margin-left: auto; margin-right: auto;">Rubber Dispersion Kneaders & Mixing Mills Built for 24/7 Industrial Operations</h1>
-      <p style="margin-left: auto; margin-right: auto;">25L to 125L hydraulic kneaders • Heavy-duty mixing mills • PLC-controlled systems • Pan-India service network</p>
-      
-      <div class="cta-group" style="justify-content: center;">
-        <a href="/contact" class="btn btn-primary"><i class="fas fa-calculator"></i> Get Equipment Quote</a>
-        <a href="/contact" class="btn btn-secondary"><i class="fas fa-file-pdf"></i> Download Brochure</a>
+    <div class="hero-inner">
+      <span class="hero-eyebrow geo-tag">
+        <i class="fas fa-industry"></i>
+        Ambarnath MIDC • Rubber Processing Machinery Manufacturer
+      </span>
+      <h1 class="hero-title">
+        Rubber Dispersion Kneaders & Mixing Mills Built for 24/7 Industrial Operations
+      </h1>
+      <p class="hero-subtitle">
+        Heavy-duty rubber processing machinery from 25L kneaders to 26\" × 84\" mixing mills, engineered for consistent quality, safety, and Pan‑India service support.
+      </p>
+
+      <div class="hero-ctas">
+        <a href="/contact" class="btn btn-primary">
+          <i class="fas fa-calculator"></i> Get Equipment Quote
+        </a>
+        <a href="/contact" class="btn btn-secondary">
+          <i class="fas fa-file-pdf"></i> Download Machinery Brochure
+        </a>
       </div>
 
-      <div class="trust-badges" style="justify-content: center;">
-        <div class="badge"><i class="fas fa-calendar-check"></i> 30+ Years Experience</div>
-        <div class="badge"><i class="fas fa-truck"></i> Service Across India</div>
-        <div class="badge"><i class="fas fa-industry"></i> Made in Ambarnath</div>
+      <div class="hero-meta-badges">
+        <div class="badge"><i class="fas fa-calendar-check"></i> 30+ years experience</div>
+        <div class="badge"><i class="fas fa-truck"></i> Pan‑India installation & service</div>
+        <div class="badge"><i class="fas fa-industry"></i> Manufactured in Ambarnath MIDC</div>
       </div>
     </div>
   </div>
@@ -397,48 +361,6 @@
 <!-- FOOTER COMPONENT LOAD -->
 <div id="footer"></div>
 
-
-<script>
-// Global functions
-function toggleMenu() {
-  const nav = document.getElementById("nav-links");
-  if (nav) nav.classList.toggle("active");
-}
-
-function toggleFAQ(element) {
-  element.classList.toggle('active');
-  const answer = element.nextElementSibling;
-  answer.classList.toggle('show');
-}
-
-document.addEventListener("DOMContentLoaded", function() {
-  
-  // Load header/footer components
-  function loadComponent(id, file) {
-    fetch(file)
-      .then(response => {
-        if (!response.ok) throw new Error("Failed to load " + file);
-        return response.text();
-      })
-      .then(data => {
-        const element = document.getElementById(id);
-        if (element) element.innerHTML = data;
-      })
-      .catch(error => console.error(error));
-  }
-
-  loadComponent("header", "components/header.html");
-  loadComponent("footer", "components/footer.html");
-
-  // Performance - lazy load images
-  if ('loading' in HTMLImageElement.prototype) {
-    const images = document.querySelectorAll('img[loading="lazy"]');
-    images.forEach(img => {
-      img.loading = 'lazy';
-    });
-  }
-});
-</script>
-
+<script src="js/layout.js"></script>
 </body>
 </html>

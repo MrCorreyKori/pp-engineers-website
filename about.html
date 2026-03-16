@@ -6,12 +6,6 @@
 <title>About P & P Engineers</title>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/style.css">
-
-<style>
-body{margin:0;font-family:'Poppins',sans-serif;background:#f4f6f9;color:#333;}
-.container{width:90%;max-width:1000px;margin:auto;padding:70px 0;}
-h1{color:#0B1F3A;}
-</style>
 </head>
 <body>
 <div id="header"></div>
@@ -34,29 +28,6 @@ h1{color:#0B1F3A;}
 
 <div id="footer"></div>
 
-<script>
-function toggleMenu() {
-  const nav = document.getElementById("nav-links");
-  if (nav) nav.classList.toggle("active");
-}
-
-document.addEventListener("DOMContentLoaded", function() {
-  function loadComponent(id, file) {
-    fetch(file)
-      .then(response => {
-        if (!response.ok) throw new Error("Failed to load " + file);
-        return response.text();
-      })
-      .then(data => {
-        const element = document.getElementById(id);
-        if (element) element.innerHTML = data;
-      })
-      .catch(error => console.error(error));
-  }
-
-  loadComponent("header", "components/header.html");
-  loadComponent("footer", "components/footer.html");
-});
-</script>
+<script src="js/layout.js"></script>
 </body>
 </html>

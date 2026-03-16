@@ -74,6 +74,33 @@ document.addEventListener("DOMContentLoaded", function() {
     return;
   }
 
+  // Pre-fill product interest from URL parameter (?product=...)
+  try {
+    const params = new URLSearchParams(window.location.search);
+    const productFromUrl = params.get("product");
+    const productSelect = form.product_interest;
+
+    if (productFromUrl && productSelect) {
+      const target = productFromUrl.trim().toLowerCase();
+      let matched = false;
+
+      Array.from(productSelect.options).forEach(function (opt) {
+        if (!opt.value) return;
+        if (opt.text.trim().toLowerCase() === target || opt.value.trim().toLowerCase() === target) {
+          productSelect.value = opt.value;
+          matched = true;
+        }
+      });
+
+      // If nothing matched exactly, leave the default placeholder selected
+      if (!matched && productSelect.value === "") {
+        // no-op: user will choose manually
+      }
+    }
+  } catch (e) {
+    console.warn("Could not prefill product interest from URL:", e);
+  }
+
   form.addEventListener("submit", async function(event) {
     event.preventDefault();
 

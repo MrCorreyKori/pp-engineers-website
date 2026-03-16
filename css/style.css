@@ -1,22 +1,22 @@
 /* ===== CSS VARIABLES ===== */
 :root {
-  /* Primary Colors */
-  --primary: #0B1F3A;
-  --primary-dark: #1a3a5a;
-  --primary-light: #1a2f4a;
+  /* Primary Colors - calm industrial palette */
+  --primary: #1F2933;
+  --primary-dark: #111827;
+  --primary-light: #334155;
   
-  /* Secondary/Accent Colors */
-  --secondary: #ff7a00;
-  --secondary-dark: #e96d00;
-  --secondary-light: #ff9436;
+  /* Secondary/Accent Colors - controlled amber for CTAs */
+  --secondary: #F59E0B;
+  --secondary-dark: #D97706;
+  --secondary-light: #FBBF24;
   
   /* Neutral Colors */
   --white: #ffffff;
-  --light: #f8f9fa;
-  --lighter: #f4f6f9;
-  --dark: #333333;
-  --text: #333333;
-  --text-light: #666666;
+  --light: #F3F4F6;
+  --lighter: #F9FAFB;
+  --dark: #111827;
+  --text: #111827;
+  --text-light: #6B7280;
   --border: #e5e5e5;
   --border-light: #eeeeee;
   
@@ -88,12 +88,12 @@ body {
 }
 
 /* ===== CONTACT BAR ===== */
-  .contact-bar {
-    background: var(--secondary);
-    color: var(--white);
-    padding: 15px 0;
-    text-align: center;
-  }
+.contact-bar {
+  background: var(--primary-dark);
+  color: var(--white);
+  padding: 15px 0;
+  text-align: center;
+}
 
 .contact-bar .container {
   display: flex;
@@ -238,48 +238,114 @@ nav a:hover {
 }
 
 /* ===== HERO SECTIONS ===== */
-.hero {
-  background: linear-gradient(rgba(11,31,58,0.85), rgba(11,31,58,0.85)), url('../images/hero.jpg');
-  background-size: cover;
-  background-position: center;
+.hero-section {
+  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
   color: var(--white);
-  padding: 140px 0;
+  padding: 110px 0 90px;
+  text-align: left;
+}
+
+.hero-inner {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.hero-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  padding: 6px 14px;
+  border-radius: var(--radius-round);
+  font-size: 0.9rem;
+  background: rgba(255,255,255,0.08);
+  margin-bottom: 18px;
+}
+
+.hero-title {
+  font-size: 2.9rem;
+  line-height: 1.2;
+  margin-bottom: 18px;
+}
+
+.hero-subtitle {
+  font-size: 1.1rem;
+  max-width: 640px;
+  line-height: 1.7;
+  margin-bottom: 26px;
+  color: rgba(249,250,251,0.9);
+}
+
+.hero-ctas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  align-items: center;
+}
+
+.hero-meta-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 18px;
+  margin-top: 32px;
+}
+
+.hero-meta-badges .badge {
+  color: rgba(249,250,251,0.9);
+}
+
+.hero--centered {
+  text-align: center;
+}
+
+.hero--centered .hero-inner {
+  text-align: center;
+}
+
+.hero--centered .hero-subtitle {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Backwards compatibility for existing .hero / .hero-product */
+.hero {
+  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+  color: var(--white);
+  padding: 110px 0 90px;
   text-align: center;
 }
 
 .hero h1 {
-  font-size: 42px;
+  font-size: 2.8rem;
   margin-bottom: 20px;
   line-height: 1.2;
 }
 
 .hero p {
-  font-size: 18px;
-  margin-bottom: 30px;
-  max-width: 800px;
+  font-size: 1.1rem;
+  margin-bottom: 26px;
+  max-width: 640px;
   margin-left: auto;
   margin-right: auto;
-  line-height: 1.6;
+  line-height: 1.7;
 }
 
 /* Product Page Hero */
 .hero-product {
   background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
   color: var(--white);
-  padding: 80px 0 40px;
+  padding: 90px 0 60px;
   text-align: center;
 }
 
 .hero-product h1 {
-  font-size: 42px;
-  margin-bottom: 20px;
+  font-size: 2.6rem;
+  margin-bottom: 18px;
 }
 
 .hero-product p {
-  font-size: 18px;
-  max-width: 800px;
+  font-size: 1.05rem;
+  max-width: 760px;
   margin: 0 auto;
-  line-height: 1.6;
+  line-height: 1.7;
   opacity: 0.9;
 }
 
